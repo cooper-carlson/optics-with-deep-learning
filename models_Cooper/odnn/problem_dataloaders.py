@@ -298,19 +298,32 @@ class logicGateXORPhaseDataModule(pl.LightningDataModule):
             R = np.sqrt(X**2 + Y**2)
             Phi = np.arctan2(Y, X)
             # Laguerre polynomial
-            from scipy.special import genlaguerre
+            # from scipy.special import genlaguerre
 
-            L = genlaguerre(n, np.abs(l))
+            # L = genlaguerre(n, np.abs(l))
             
-            # mode field
-            mode = (
-                (R * np.sqrt(2) / width) ** np.abs(l)
-                * L(2 * R**2 / width**2)
-                * np.exp(-R**2 / width**2)
-                * np.exp(1j * l * Phi)
-            )
+            # # mode field
+            # mode = (
+            #     (R * np.sqrt(2) / width) ** np.abs(l)
+            #     * L(2 * R**2 / width**2)
+            #     * np.exp(-R**2 / width**2)
+            #     * np.exp(1j * l * Phi)
+            # )
 
-            return mode
+            w0 = width / np.sqrt(abs(l) + 1)
+
+            r_safe = np.where(R == 0, 1e-12, R)
+            t_rad = abs(l) * np.log(r_safe) - (R**2 / w0**2)
+
+            amp = np.exp(t_rad)
+            A = amp / np.max(amp)
+
+            F = l * Phi - (np.pi * A)
+            phase = np.mod(F, 2 * np.pi)
+
+            mode = A * np.exp(1j * phase)
+
+            return mode.astype(np.complex64)
     
         import numpy as np
 

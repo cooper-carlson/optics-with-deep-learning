@@ -194,8 +194,8 @@ def make_run_folder(params, root="runs"):
 # %% setup
 
 dataset = [
-    [[1, 1, 1, 1], [1, 1, 1, 2]],
-    [[2, 2, 2, 2], [2, 3, 2, 3]],
+    [[1, np.nan, 2, np.nan], [1, np.nan, 1, np.nan]],
+    [[2, np.nan, 2, np.nan], [2, np.nan, 2, np.nan]],
     # [[2, 0, 3, 0], [-2, 0, -3, 0]],
     # [[1, 1, 2, 0], [-1, 1, -2, 0]],
     # [[1, 0, 2, 1], [-1, 0, -2, 1]],
@@ -254,7 +254,7 @@ smoothness_lambda = 1e-2
 init = "zeros"  # "zeros" or "rnd"
 trainable_z = True  # if True, propagation distances are trainable paramfeters
 z_freeze_epochs = 2000  # number of epochs with frozen propagation distances at start of training
-max_epochs = 1000 # total number of training epochs
+max_epochs = 1001 # total number of training epochs
 print_each_n_epochs = 500  # print loss each n epochs
 z_learning_rate_factor = 1e-2
 animate_every_n_epochs = 10  # save phase evolution animation every n epochs
