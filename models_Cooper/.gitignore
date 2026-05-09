@@ -1,0 +1,6 @@
+*.pyc
+*.png
+*.svg
+*.opd
+lightning_logs/*
+examples/lightning_logs/*
