@@ -1,6 +1,17 @@
-*.pyc
-*.png
-*.svg
-*.opd
-lightning_logs/*
-examples/lightning_logs/*
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Windows metadata
+*Zone.Identifier
+
+# Local/generated outputs
+runs/
+lightning_logs/
+*.ckpt
+*.mp4
+
+# Environments
+.env
+.venv/

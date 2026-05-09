@@ -17,7 +17,7 @@ import numpy as np
 import matplotlib.animation as animation
 
 from odnn.diffractivelayer import LearnablePhaseLayer2d, PropagationLayer
-from examples.problem_dataloaders import logicGateXORPhaseDataModule
+from odnn.problem_dataloaders import logicGateXORPhaseDataModule
 from odnn.helper import predict_and_plot
 from odnn.helper import plot_learned_layers_phase
 from odnn.callbacks import ZWarmupCallback, LossLoggingCallback, PlottingCallback, PhaseTrackingCallback

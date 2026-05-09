@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: odnn
+Version: 0.1.0
+Summary: Optical diffractive neural network utilities
+Requires-Python: >=3.10
